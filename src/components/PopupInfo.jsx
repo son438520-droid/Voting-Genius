@@ -36,7 +36,7 @@ function PopupInfo({ value, style }) {
               to={"/microsoft"}
               className="flex items-center gap-3 text-lg bg-blue-600 rounded-md py-2 px-5"
             >
-              Google <BsMicrosoft />
+              Microsoft <BsMicrosoft />
             </Link>
             {/* <Link
               to={"/facebook"}
